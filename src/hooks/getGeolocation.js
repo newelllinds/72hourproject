@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const useGeoLocation = () => {
+const useGeoLocation = (props) => {
     const [location, setLocation] = useState({
         loaded: false,
         coordinates: { latitude: '', longitude: '' }
     });
 
     const onSuccess = location => {
-        setLocation({
+        props.setLocation({
             loaded: true,
             coordinates: {
                 latitude: location.coords.latitude,
