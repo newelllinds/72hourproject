@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import './components/nasa/Nasa'
 import { Alert } from 'reactstrap';
-import Zomato from './components/zomato/Zomato'
-
-
+import Zomato from './components/zomato/Zomato';
+import Nasa from './components/nasa/Nasa';
 
 function App() {
   const [location, setLocation] = useState("")
@@ -46,6 +44,7 @@ function App() {
           </Alert>
 
           <Zomato location={location}/>
+          <Nasa location={location}/>
         </div>
   );
 }
