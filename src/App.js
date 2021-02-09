@@ -35,7 +35,7 @@ function App() {
             });
         }
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }, []);
+  }, []);
 
 
   return (
