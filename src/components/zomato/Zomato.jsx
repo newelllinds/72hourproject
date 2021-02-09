@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { CardColumns } from 'reactstrap';
+import { CardColumns } from 'reactstrap';
 import ZomatoChild from './ZomatoChild'
 
 
@@ -28,19 +28,19 @@ const ZomatoParent = (props) => {
         // fetchResults();
     }, []);
 
-    // function displayCards() {
-    //     return restaurant.length > 0 ? restaurant.map((restaurant) => <ZomatoChild zomatoRest={restaurant}/>) : null;
+    function displayCards() {
+        return restaurant.length > 0 ? restaurant.map((restaurant) => <ZomatoChild zomatoRest={restaurant}/>) : null;
                 
-    // }
+    }
 
 
         return (
             <div>
                 <button onClick={fetchResults}>Fetch Restaurants</button>
                 
-                {/* <CardColumns>
+                <CardColumns>
                 {displayCards()}
-                </CardColumns> */}
+                </CardColumns>
             </div>
     );
 }
