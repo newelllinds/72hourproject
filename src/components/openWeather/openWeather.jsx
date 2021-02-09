@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import OpenWeatherChild from './OpenWeatherChild'
+import { CardColumns } from 'reactstrap';
 
 const OpenWeather = (props) => {
     const [weather, setWeather] =useState ([])
@@ -11,12 +13,20 @@ const OpenWeather = (props) => {
                 .then((response) => response.json())
                 .then((json) => {
                     setWeather(json)
-                    console.log(json)})
+                    console.log(json.wind.speed)})
+    }
+
+        function displayWeather() {
+        return weather.length > 0 ? weather.map((weather) => <OpenWeatherChild openWeather={weather}/>) : null;
+                
     }
 
     return (
         <div>
             <button onClick={fetchResults}>Current Weather</button>
+            <CardColumns>
+                {displayWeather()}
+                </CardColumns>
         </div>
     );
 };
