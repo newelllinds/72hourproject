@@ -18,8 +18,8 @@ const Github = (props) => {
     }
 
     useEffect(() => {
-        fetchGithub();
-    }, []);
+        {fetchGithub()}
+      }, []);
 
     function displayCards() {
         return positions.length > 0 ? positions.map((position) => <GithubChild githubJob={position} />) : null;
@@ -27,7 +27,7 @@ const Github = (props) => {
 
     return (<div>
         <CardColumns>{displayCards()}</CardColumns>
-        <button onClick={fetchGithub}>Get Jobs</button>
+        {/* <button onClick={fetchGithub}>Get Jobs</button> */}
     </div>
     );
 };

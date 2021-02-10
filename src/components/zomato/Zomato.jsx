@@ -31,11 +31,6 @@ const ZomatoParent = (props) => {
         return restaurant.length > 0 ? restaurant.map((restaurant) => <ZomatoChild zomatoRest={restaurant}/>) : null;        
     }
 
-    return (
-        <div>
-            <button onClick={fetchResults}>Fetch Restaurants</button>
-
-
         return (
             <div>
                 {/* <button onClick={fetchResults}>Fetch Restaurants</button> */}

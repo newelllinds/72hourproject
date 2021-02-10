@@ -1,17 +1,17 @@
-import React from 'react';
-import {
-Card, CardBody, CardTitle, CardText} from 'reactstrap';
+// import React from 'react';
+// import {
+// Card, CardBody, CardTitle, CardText} from 'reactstrap';
 
 
 
-const OpenWeatherChild = (props) => {
-    return (
-    <div>
-        <p>Temperature: ${props.openWeat.main.temp} </p>
+// const OpenWeatherChild = (props) => {
+//     return (
+//     <div>
+//         <p>Temperature: ${props.openWeat.main.temp} </p>
             
-    </div>
+//     </div>
         
-    );
-};
+//     );
+// };
  
-export default OpenWeatherChild;
+// export default OpenWeatherChild;

@@ -4,8 +4,7 @@ import { Alert } from 'reactstrap';
 import Zomato from './components/zomato/Zomato';
 import Nasa from './components/nasa/Nasa';
 import Github from './components/github/Github';
-import OpenWeather from "./components/openWeather/OpenWeather";
-
+// import OpenWeather from "./components/openWeather/OpenWeather";
 
 function App() {
   const [location, setLocation] = useState("");
@@ -35,15 +34,44 @@ function App() {
                 message: "Geolocation not supported"
             });
         }
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        navigator.geolocation.watchPosition(onSuccess[onError[options]]);
   }, []);
+// function App() {
+//   const [location, setLocation] = useState("");
+//   console.log(location);
+
+//   const onSuccess = (location) => {
+//     setLocation({
+//       loaded: true,
+//       coordinates: {
+//         latitude: location.coords.latitude,
+//         longitude: location.coords.longitude,
+//       },
+//     });
+//   };
+
+//   const onError = (error) => {
+//     setLocation({
+//       loaded: true,
+//       error,
+//     });
+//   };
+
+//   useEffect(() => {
+//         if (!("geolocation" in navigator)) {
+//             onError({
+//                 code: 0,
+//                 message: "Geolocation not supported"
+//             });
+//         }
+//         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+//   }, []);
 
   // const components = () => {
   //   return (
   //   <Nasa location={location} /> <Zomato location={location} /> <OpenWeather location={location} />
   //   )
   // }
-
   const waitingOnLocation = () => {
     return location === '' ? '' : <Nasa location={location} />
   }
@@ -52,6 +80,9 @@ function App() {
     return location === '' ? '' : <Zomato location={location} />
   }
 
+  const waitingGit = () => {
+    return location === '' ? '' : <Github location={location} />
+  }
 
   return (
     <div className="text-center">
@@ -63,9 +94,10 @@ function App() {
       </Alert>
       {/* <Zomato location={location} /> */}
       {/* <Nasa location={location} /> */}
-      <OpenWeather location={location} />
+      {/* <OpenWeather location={location} /> */}
       {waitingOnLocation()}
       {waitingZomato()}
+      {waitingGit()}
     </div>
   );
 }
