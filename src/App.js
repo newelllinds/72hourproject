@@ -34,13 +34,8 @@ function App() {
                 message: "Geolocation not supported"
             });
         }
-        navigator.geolocation.watchPosition(onSuccess[onError[options]]);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, []);
-// function App() {
-//   const [location, setLocation] = useState("");
-//   console.log(location);
-
-//   const onSuccess = (location) => {
 
   const waitingOnLocation = () => {
     return location === '' ? '' : <Nasa location={location} />
@@ -53,13 +48,10 @@ function App() {
   const waitingGit = () => {
     return location === '' ? '' : <Github location={location} />
   }
-<<<<<<< HEAD
-=======
 
   const waitingWeather = () => {
     return location === '' ? '' : <OpenWeather location={location} />
   }
->>>>>>> 53ca2f619f1efaf5ae07088c9b2adace70898d48
 
   return (
     <div className="text-center">
@@ -72,11 +64,7 @@ function App() {
       {/* <Zomato location={location} /> */}
       {/* <Nasa location={location} /> */}
       {/* <OpenWeather location={location} /> */}
-<<<<<<< HEAD
-=======
       {waitingWeather()}
-      {waitingGit()}
->>>>>>> 53ca2f619f1efaf5ae07088c9b2adace70898d48
       {waitingOnLocation()}
       {waitingZomato()}
       {waitingGit()}
