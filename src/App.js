@@ -4,7 +4,7 @@ import { Alert } from 'reactstrap';
 import Zomato from './components/zomato/Zomato';
 import Nasa from './components/nasa/Nasa';
 import Github from './components/github/Github';
-// import OpenWeather from "./components/openWeather/OpenWeather";
+import OpenWeather from "./components/openWeather/openWeather";
 
 function App() {
   const [location, setLocation] = useState("");
@@ -41,37 +41,7 @@ function App() {
 //   console.log(location);
 
 //   const onSuccess = (location) => {
-//     setLocation({
-//       loaded: true,
-//       coordinates: {
-//         latitude: location.coords.latitude,
-//         longitude: location.coords.longitude,
-//       },
-//     });
-//   };
 
-//   const onError = (error) => {
-//     setLocation({
-//       loaded: true,
-//       error,
-//     });
-//   };
-
-//   useEffect(() => {
-//         if (!("geolocation" in navigator)) {
-//             onError({
-//                 code: 0,
-//                 message: "Geolocation not supported"
-//             });
-//         }
-//         navigator.geolocation.getCurrentPosition(onSuccess, onError);
-//   }, []);
-
-  // const components = () => {
-  //   return (
-  //   <Nasa location={location} /> <Zomato location={location} /> <OpenWeather location={location} />
-  //   )
-  // }
   const waitingOnLocation = () => {
     return location === '' ? '' : <Nasa location={location} />
   }
@@ -83,6 +53,13 @@ function App() {
   const waitingGit = () => {
     return location === '' ? '' : <Github location={location} />
   }
+<<<<<<< HEAD
+=======
+
+  const waitingWeather = () => {
+    return location === '' ? '' : <OpenWeather location={location} />
+  }
+>>>>>>> 53ca2f619f1efaf5ae07088c9b2adace70898d48
 
   return (
     <div className="text-center">
@@ -95,6 +72,11 @@ function App() {
       {/* <Zomato location={location} /> */}
       {/* <Nasa location={location} /> */}
       {/* <OpenWeather location={location} /> */}
+<<<<<<< HEAD
+=======
+      {waitingWeather()}
+      {waitingGit()}
+>>>>>>> 53ca2f619f1efaf5ae07088c9b2adace70898d48
       {waitingOnLocation()}
       {waitingZomato()}
       {waitingGit()}
