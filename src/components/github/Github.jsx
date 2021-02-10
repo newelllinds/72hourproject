@@ -27,7 +27,7 @@ const Github = (props) => {
 
     return (<div>
         <CardColumns>{displayCards()}</CardColumns>
-        <button onClick={fetchGithub}>Get Jobs</button>
+        {/* <button onClick={fetchGithub}>Get Jobs</button> */}
     </div>
     );
 };

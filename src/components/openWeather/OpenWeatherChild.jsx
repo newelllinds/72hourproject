@@ -7,7 +7,7 @@ Card, CardBody, CardTitle, CardText} from 'reactstrap';
 const OpenWeatherChild = (props) => {
     return (
     <div>
-        <p>Temperature: ${props.openWeat.main.temp} </p>
+        <p>Temperature: ${props.openWeat} </p>
             
     </div>
         

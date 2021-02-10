@@ -4,7 +4,8 @@ import { Alert } from 'reactstrap';
 import Zomato from './components/zomato/Zomato';
 import Nasa from './components/nasa/Nasa';
 import Github from './components/github/Github';
-import OpenWeather from "./components/openWeather/OpenWeather";
+import OpenWeather from "./components/openWeather/openWeather";
+
 
 
 function App() {
@@ -52,6 +53,13 @@ function App() {
     return location === '' ? '' : <Zomato location={location} />
   }
 
+  const waitingGit = () => {
+    return location === '' ? '' : <Github location={location} />
+  }
+
+  const waitingWeather = () => {
+    return location === '' ? '' : <OpenWeather location={location} />
+  }
 
   return (
     <div className="text-center">
@@ -63,7 +71,9 @@ function App() {
       </Alert>
       {/* <Zomato location={location} /> */}
       {/* <Nasa location={location} /> */}
-      <OpenWeather location={location} />
+      {/* <OpenWeather location={location} /> */}
+      {waitingWeather()}
+      {waitingGit()}
       {waitingOnLocation()}
       {waitingZomato()}
     </div>

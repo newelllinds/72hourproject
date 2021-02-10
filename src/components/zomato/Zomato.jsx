@@ -33,11 +33,7 @@ const ZomatoParent = (props) => {
 
     return (
         <div>
-            <button onClick={fetchResults}>Fetch Restaurants</button>
-
-
-        return (
-            <div>
+            {/* <button onClick={fetchResults}>Fetch Restaurants</button> */}
                 {/* <button onClick={fetchResults}>Fetch Restaurants</button> */}
                 
                 <CardColumns>
