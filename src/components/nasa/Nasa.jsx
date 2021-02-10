@@ -17,10 +17,14 @@ const Nasa = (props) => {
                     console.log(props);
                 });
     }
+    console.log(URL);
+    useEffect(() => {
+        {fetchResults()}
+      }, []);
 
     return (
         <div>
-            <button onClick={fetchResults}>Fetch Nasa</button>
+            {/* <button onClick={fetchResults}>Fetch Nasa</button> */}
             <img src = {image} Image goes here/>
         </div>
     );

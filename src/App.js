@@ -37,6 +37,19 @@ function App() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, []);
 
+  // const components = () => {
+  //   return (
+  //   <Nasa location={location} /> <Zomato location={location} /> <OpenWeather location={location} />
+  //   )
+  // }
+
+  const waitingOnLocation = () => {
+    return location === '' ? '' : <Nasa location={location} />
+  }
+
+  const waitingZomato = () => {
+    return location === '' ? '' : <Zomato location={location} />
+  }
 
 
   return (
@@ -45,10 +58,13 @@ function App() {
       {location.loaded
         ? JSON.stringify(location)
         : "Location data not available yet."}
+
       </Alert>
-      <Zomato location={location} />
-      <Nasa location={location} />
+      {/* <Zomato location={location} /> */}
+      {/* <Nasa location={location} /> */}
       <OpenWeather location={location} />
+      {waitingOnLocation()}
+      {waitingZomato()}
     </div>
   );
 }
