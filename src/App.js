@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import { Alert } from "reactstrap";
-import Zomato from "./components/zomato/Zomato";
-import Nasa from "./components/nasa/Nasa";
-import OpenWeather from "./components/openWeather/openWeather";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import { Alert } from 'reactstrap';
+import Zomato from './components/zomato/Zomato';
+import Nasa from './components/nasa/Nasa';
+import Github from './components/github/Github';
+import OpenWeather from "./components/openWeather/OpenWeather";
 
 
 function App() {
