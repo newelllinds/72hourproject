@@ -3,7 +3,6 @@ import { CardColumns } from 'reactstrap';
 import ZomatoChild from './ZomatoChild'
 
 
-
 const ZomatoParent = (props) => {
     const [restaurant, setRestaurant] = useState([])
 
@@ -29,8 +28,7 @@ const ZomatoParent = (props) => {
           }, []);
 
     function displayCards() {
-        return restaurant.length > 0 ? restaurant.map((restaurant) => <ZomatoChild zomatoRest={restaurant}/>) : null;
-                
+        return restaurant.length > 0 ? restaurant.map((restaurant) => <ZomatoChild zomatoRest={restaurant}/>) : null;        
     }
 
 

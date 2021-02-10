@@ -3,7 +3,8 @@ import "./App.css";
 import { Alert } from "reactstrap";
 import Zomato from "./components/zomato/Zomato";
 import Nasa from "./components/nasa/Nasa";
-import OpenWeather from "./components/openWeather/OpenWeather";
+import OpenWeather from "./components/openWeather/openWeather";
+
 
 function App() {
   const [location, setLocation] = useState("");
@@ -27,13 +28,13 @@ function App() {
   };
 
   useEffect(() => {
-    if (!("geolocation" in navigator)) {
-      onError({
-        code: 0,
-        message: "Geolocation not supported",
-      });
-    }
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        if (!("geolocation" in navigator)) {
+            onError({
+                code: 0,
+                message: "Geolocation not supported"
+            });
+        }
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, []);
 
   // const components = () => {
@@ -53,10 +54,12 @@ function App() {
 
   return (
     <div className="text-center">
-      <h2>You are located at:</h2>
+      <Alert><h2>You are located at:</h2>
       {location.loaded
         ? JSON.stringify(location)
         : "Location data not available yet."}
+
+      </Alert>
       {/* <Zomato location={location} /> */}
       {/* <Nasa location={location} /> */}
       <OpenWeather location={location} />
