@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import { Alert } from "reactstrap";
-import Zomato from "./components/zomato/Zomato";
-import Nasa from "./components/nasa/Nasa";
-import OpenWeather from "./components/openWeather/openWeather";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import { Alert } from 'reactstrap';
+import Zomato from './components/zomato/Zomato';
+import Nasa from './components/nasa/Nasa';
+// import Github from './components/github/Github';
+// import OpenWeather from "./components/openWeather/OpenWeather";
 
 
 function App() {
@@ -37,6 +38,19 @@ function App() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, []);
 
+  // const components = () => {
+  //   return (
+  //   <Nasa location={location} /> <Zomato location={location} /> <OpenWeather location={location} />
+  //   )
+  // }
+
+  const waitingOnLocation = () => {
+    return location === '' ? '' : <Nasa location={location} />
+  }
+
+  const waitingZomato = () => {
+    return location === '' ? '' : <Zomato location={location} />
+  }
 
 
   return (
@@ -45,10 +59,13 @@ function App() {
       {location.loaded
         ? JSON.stringify(location)
         : "Location data not available yet."}
+
       </Alert>
-      <Zomato location={location} />
-      <Nasa location={location} />
-      <OpenWeather location={location} />
+      {/* <Zomato location={location} /> */}
+      {/* <Nasa location={location} /> */}
+      {/* <OpenWeather location={location} /> */}
+      {waitingOnLocation()}
+      {waitingZomato()}
     </div>
   );
 }

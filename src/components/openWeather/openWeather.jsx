@@ -21,7 +21,7 @@ const OpenWeather = (props) => {
 
 
         function displayWeather() {
-        return weather.length > 0 ? weather.map((weathers) => <OpenWeatherChild openWeat={weathers}/>) : null;
+        return weather.length > 0 ? weather.map((weather) => <OpenWeatherChild openWeat={weather}/>) : null;
                 
     }
 
