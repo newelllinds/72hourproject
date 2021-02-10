@@ -6,6 +6,7 @@ import Nasa from './components/nasa/Nasa';
 import Github from './components/github/Github';
 import OpenWeather from "./components/openWeather/OpenWeather";
 
+
 function App() {
   const [location, setLocation] = useState("");
   console.log(location);
@@ -28,26 +29,44 @@ function App() {
   };
 
   useEffect(() => {
-    if (!("geolocation" in navigator)) {
-      onError({
-        code: 0,
-        message: "Geolocation not supported",
-      });
-    }
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        if (!("geolocation" in navigator)) {
+            onError({
+                code: 0,
+                message: "Geolocation not supported"
+            });
+        }
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, []);
 
-  return (
-        <div className="text-center">
-          <Alert color="primary">
-            <h2>You are located at:</h2>
-            {location.loaded ? JSON.stringify(location) : "Location data not available yet."}
-          </Alert>
+  // const components = () => {
+  //   return (
+  //   <Nasa location={location} /> <Zomato location={location} /> <OpenWeather location={location} />
+  //   )
+  // }
 
-          <Zomato location={location}/>
-          <Nasa location={location}/>
-          <Github location={location}/>
-        </div>
+  const waitingOnLocation = () => {
+    return location === '' ? '' : <Nasa location={location} />
+  }
+
+  const waitingZomato = () => {
+    return location === '' ? '' : <Zomato location={location} />
+  }
+
+
+  return (
+    <div className="text-center">
+      <Alert><h2>You are located at:</h2>
+      {location.loaded
+        ? JSON.stringify(location)
+        : "Location data not available yet."}
+
+      </Alert>
+      {/* <Zomato location={location} /> */}
+      {/* <Nasa location={location} /> */}
+      <OpenWeather location={location} />
+      {waitingOnLocation()}
+      {waitingZomato()}
+    </div>
   );
 }
 

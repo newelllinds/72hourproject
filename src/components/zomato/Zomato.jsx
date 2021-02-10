@@ -3,7 +3,6 @@ import { CardColumns } from 'reactstrap';
 import ZomatoChild from './ZomatoChild'
 
 
-
 const ZomatoParent = (props) => {
     const [restaurant, setRestaurant] = useState([])
 
@@ -24,20 +23,24 @@ const ZomatoParent = (props) => {
             })
     }
 
-    useEffect(() => {
-        // fetchResults();
-    }, []);
+        useEffect(() => {
+            {fetchResults()}
+          }, []);
 
     function displayCards() {
-        return restaurant.length > 0 ? restaurant.map((restaurant) => <ZomatoChild zomatoRest={restaurant} />) : null;
-
+        return restaurant.length > 0 ? restaurant.map((restaurant) => <ZomatoChild zomatoRest={restaurant}/>) : null;        
     }
 
     return (
         <div>
             <button onClick={fetchResults}>Fetch Restaurants</button>
 
-            <CardColumns>
+
+        return (
+            <div>
+                {/* <button onClick={fetchResults}>Fetch Restaurants</button> */}
+                
+                <CardColumns>
                 {displayCards()}
             </CardColumns>
         </div>
