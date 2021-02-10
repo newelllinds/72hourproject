@@ -18,8 +18,8 @@ const Github = (props) => {
     }
 
     useEffect(() => {
-        fetchGithub();
-    }, []);
+        {fetchGithub()}
+      }, []);
 
     function displayCards() {
         return positions.length > 0 ? positions.map((position) => <GithubChild githubJob={position} />) : null;

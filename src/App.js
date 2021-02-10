@@ -6,8 +6,6 @@ import Nasa from './components/nasa/Nasa';
 import Github from './components/github/Github';
 import OpenWeather from "./components/openWeather/openWeather";
 
-
-
 function App() {
   const [location, setLocation] = useState("");
   console.log(location);
@@ -39,12 +37,6 @@ function App() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, []);
 
-  // const components = () => {
-  //   return (
-  //   <Nasa location={location} /> <Zomato location={location} /> <OpenWeather location={location} />
-  //   )
-  // }
-
   const waitingOnLocation = () => {
     return location === '' ? '' : <Nasa location={location} />
   }
@@ -73,9 +65,9 @@ function App() {
       {/* <Nasa location={location} /> */}
       {/* <OpenWeather location={location} /> */}
       {waitingWeather()}
-      {waitingGit()}
       {waitingOnLocation()}
       {waitingZomato()}
+      {waitingGit()}
     </div>
   );
 }
