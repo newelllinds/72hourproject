@@ -6,7 +6,7 @@ import {
 
 
 const ZomatoChild = (props) => {
-    return (
+    return (<div>
         <Card>
             <CardBody>
                 <CardTitle tag="h5">{props.zomatoRest.restaurant.name}</CardTitle>
@@ -15,6 +15,8 @@ const ZomatoChild = (props) => {
                 <CardText>Average Cost for Two: ${props.zomatoRest.restaurant.average_cost_for_two} </CardText>
             </CardBody>
         </Card>
+                
+    </div>
         
     );
 };
