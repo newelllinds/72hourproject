@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import OpenWeatherChild from './OpenWeatherChild'
-import { Card, ButtonToggle } from 'reactstrap';
+// import OpenWeatherChild from './OpenWeatherChild'
+import { ButtonToggle } from 'reactstrap';
 
 const OpenWeather = (props) => {
     const [weather, setWeather] = useState ([])
@@ -11,8 +11,8 @@ const OpenWeather = (props) => {
             fetch(URL)
                 .then((response) => response.json())
                 .then((json) => {
-                    setWeather(json)
-                    console.log(json.main)})
+                    setWeather(json.main)
+                    console.log(json)})
     }
 
     useEffect(() => {
@@ -20,16 +20,14 @@ const OpenWeather = (props) => {
     }, []);
 
 
-        function displayWeather() {
-        return weather.length > 0 ? weather.map((weather) => <OpenWeatherChild openWeat={weather}/>) : null;
-                
-    }
+        
 
     return (
         <div>
             <button onClick={fetchResults}>Current Weather</button>
+        
             <p>
-            {displayWeather()}
+                <ButtonToggle color="secondary">{weather.temp}</ButtonToggle>
             </p>
         </div>
     );
