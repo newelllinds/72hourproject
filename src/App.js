@@ -46,7 +46,7 @@ function App() {
 
           <Zomato location={location}/>
           <Nasa location={location}/>
-          <Github/>
+          <Github location={location}/>
         </div>
 
   );

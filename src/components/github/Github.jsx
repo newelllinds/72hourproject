@@ -2,21 +2,12 @@ import React, { useEffect, useState } from "react";
 import GithubChild from "./GithubChild";
 import { CardColumns } from "reactstrap";
 
-const Github = () => {
+const Github = (props) => {
     const [positions, setPositions] = useState([]);
-    // const [locations, setLocations] = useState([]);
-
-    // const position => {
-    //     const { latitude, longitude } = position.coords;
-    //     setLocation({
-    //         latitude, longitude
-    //     });
-    // }
 
     function fetchGithub() {
-        const url = "https://efa-cors-anywhere.herokuapp.com/jobs.github.com/positions.json?markdown=true&lat=${location.coords.latitude}&long=${location.coords.longitude}";
+        const url = `https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?lat=${props.location.coordinates.latitude}&long=${props.location.coordinates.longitude}&markdown=true`;
 
-        // "https://efa-cors-anywhere.herokuapp.com/jobs.github.com/positions.json?markdown=true&lat=37.3229978&long=-122.0321823";
 
         fetch(url)
             .then((response) => response.json())
@@ -36,6 +27,7 @@ const Github = () => {
 
     return (<div>
         <CardColumns>{displayCards()}</CardColumns>
+        <button onClick={fetchGithub}>Get Jobs</button>
     </div>
     );
 };
